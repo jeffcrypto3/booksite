@@ -24,7 +24,7 @@ router.post("/initialize", async (req, res) => {
       {
         email,
         amount: amount * 100, // naira → kobo
-        callback_url: `https://frontend-booksite.vercel.app/success?book=${bookName}`,
+        callback_url: `https://azimibooksite-production.up.railway.app/api/success?book=${bookName}`,
         reference
       },
       {
