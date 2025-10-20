@@ -72,7 +72,7 @@ router.post("/generate-token", (req, res) => {
   const { book } = req.body;
   if (!book) return res.status(400).json({ error: "Book missing" });
 
-  const token = jwt.sign({ book }, JWT_SECRET, { expiresIn: "5m" });
+  const token = jwt.sign({ book }, JWT_SECRET, { expiresIn: "10m" });
   res.json({ token });
 });
 

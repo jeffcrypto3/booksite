@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
   const { reference, book } = req.query;
 
   if (!reference || !book) {
-    return res.redirect(`https://frontend-booksite.vercel.app/payment-failed`);
+    return res.redirect(`https://www.azimikoko.com/payment-failed`);
   }
 
   try {
@@ -22,18 +22,18 @@ router.get("/", async (req, res) => {
 
     if (verify.data.data.status === "success") {
       // Generate JWT token valid for 5 minutes
-      const token = jwt.sign({ book }, JWT_SECRET, { expiresIn: "5m" });
+      const token = jwt.sign({ book }, JWT_SECRET, { expiresIn: "10m" });
 
       // Redirect frontend with token and book
       return res.redirect(
-        `https://frontend-booksite.vercel.app/payment-success?token=${token}&book=${book}`
+        `https://www.azimikoko.com/payment-success?token=${token}&book=${book}`
       );
     } else {
-      return res.redirect(`https://frontend-booksite.vercel.app/payment-failed`);
+      return res.redirect(`https://www.azimikoko.com/payment-failed`);
     }
   } catch (err) {
     console.error(err);
-    return res.redirect(`https://frontend-booksite.vercel.app/payment-failed`);
+    return res.redirect(`https://www.azimikoko.com/payment-failed`);
   }
 });
 

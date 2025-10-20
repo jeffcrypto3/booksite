@@ -13,16 +13,21 @@ const app = express();
 
 // ✅ Middleware
 app.use(express.json());
-app.use(cors({
-  origin: ["https://frontend-booksite.vercel.app"], // ✅ allow only your frontend
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-}));
+app.use(
+  cors({
+    origin: [
+      "https://frontend-booksite.vercel.app", // old frontend (keep for testing)
+      "https://azimikoko.com", // ✅ new custom domain
+      "https://www.azimikoko.com", // ✅ www version
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 // ✅ Fix for __dirname in ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
 
 // ✅ Routes
 app.use("/api/paystack", paystackRoutes);
