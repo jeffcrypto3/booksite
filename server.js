@@ -8,7 +8,6 @@ import groqAIRoutes from "./routes/groqAi.js";
 import downloadRoutes from "./routes/download.js";
 import successRoutes from "./routes/success.js";
 
-
 dotenv.config();
 const app = express();
 
@@ -18,7 +17,11 @@ const __dirname = path.dirname(__filename);
 
 // ✅ Middleware
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: ["https://frontend-booksite.vercel.app"], // ✅ allow only your frontend
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+}));
 
 // ✅ Routes
 app.use("/api/paystack", paystackRoutes);
@@ -29,5 +32,5 @@ app.use("/api/success", successRoutes);
 // ✅ Serve static books folder
 app.use("/books", express.static(path.join(__dirname, "books")));
 
-const PORT = process.env.PORT || 5050;
+const PORT = process.env.PORT || 8080; // ✅ use 8080 for Railway
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
