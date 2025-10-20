@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
   const { reference, book } = req.query;
 
   if (!reference || !book) {
-    return res.redirect(`http://localhost:5173/payment-failed`);
+    return res.redirect(`https://frontend-booksite.vercel.app/payment-failed`);
   }
 
   try {
@@ -26,14 +26,14 @@ router.get("/", async (req, res) => {
 
       // Redirect frontend with token and book
       return res.redirect(
-        `http://localhost:5173/payment-success?token=${token}&book=${book}`
+        `https://frontend-booksite.vercel.app/payment-success?token=${token}&book=${book}`
       );
     } else {
-      return res.redirect(`http://localhost:5173/payment-failed`);
+      return res.redirect(`https://frontend-booksite.vercel.app/payment-failed`);
     }
   } catch (err) {
     console.error(err);
-    return res.redirect(`http://localhost:5173/payment-failed`);
+    return res.redirect(`https://frontend-booksite.vercel.app/payment-failed`);
   }
 });
 

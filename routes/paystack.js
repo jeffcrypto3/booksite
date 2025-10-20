@@ -24,7 +24,7 @@ router.post("/initialize", async (req, res) => {
       {
         email,
         amount: amount * 100, // naira → kobo
-        callback_url: `http://localhost:5050/api/success?book=${bookName}`, // call our success route
+        callback_url: `https://frontend-booksite.vercel.app/success?book=${bookName}`,
         reference
       },
       {
