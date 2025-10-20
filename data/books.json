@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "Dreams Beyond Borders",
+    "author": "OGIESOBA IDADA",
+    "price": "₦5000",
+    "description": "Azimi Koko’s story is one of resilience and courage, rising from his village to the global stage. Battling injustice, loss, and corruption, he pursues education and fights for silenced voices. Dreams Beyond Borders is an inspiring tale of vision, struggle, and the power to spark change in a resistant world.",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "Gods to Goddesses",
+    "author": "OGIESOBA IDADA",
+    "price": "₦5000",
+    "description": "From 'Gods to Goddesses' is a captivating tale of Ogiesoba's courageous odyssey through gender constraints, injustice, and self-discovery. Her triumphant return home sparks a transformative revolution, challenging societal norms and igniting a fervent advocacy for women's empowerment and education.",
+    "featured": true
+  }
+]
